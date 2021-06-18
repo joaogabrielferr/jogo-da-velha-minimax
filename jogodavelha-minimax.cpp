@@ -1,5 +1,5 @@
 #include<bits/stdc++.h>
-#define sz(x) ((int)x.size())
+
 
 const int inf = INT_MAX;
 
@@ -42,7 +42,7 @@ int custo(char c)
 	return 0;
 }
 
-int minimax(char tab[3][3],int profundidade,char jogador)
+int minimax(char tab[3][3],char jogador)
 {
 	char ganhador = Final(tab);
 	if(ganhador != 'C')
@@ -58,7 +58,7 @@ int minimax(char tab[3][3],int profundidade,char jogador)
 				if(tab[i][j] == '-')
 				{
 					tab[i][j] = 'O';
-					int pontos = minimax(tab,profundidade + 1,'X');
+					int pontos = minimax(tab,'X');
 					tab[i][j] = '-';
 					melhor = max(melhor,pontos);
 				}
@@ -75,7 +75,7 @@ int minimax(char tab[3][3],int profundidade,char jogador)
 				if(tab[i][j] == '-')
 				{
 					tab[i][j] = 'X';
-					int pontos = minimax(tab,profundidade + 1,'O');
+					int pontos = minimax(tab,'O');
 					tab[i][j] = '-';
 					melhor = min(melhor,pontos);
 				}
@@ -141,7 +141,7 @@ int main()
 					if(tabuleiro[i][j] == '-')
 						{
 						tabuleiro[i][j] = ia;
-						int valor = minimax(tabuleiro,0,eu);
+						int valor = minimax(tabuleiro,eu);
 						tabuleiro[i][j] = '-';
 						if(valor > melhor)
 						{
