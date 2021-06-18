@@ -14,24 +14,20 @@ char Final(char tab[3][3])
 	{
 		if(tab[i][0] == tab[i][1] && tab[i][1] == tab[i][2] && tab[i][0] != '-')
 		{
-			//~ cout<<tab[i][0]<<" venceu";
 			return tab[i][0];
 		}
 		if(tab[0][i] == tab[1][i] && tab[1][i] == tab[2][i] && tab[0][i] != '-')
 		{
-			//~ cout<<tab[0][i]<<" venceu";
 			return tab[0][i];
 		}
 	}
 	if(tab[0][0] == tab[1][1] && tab[1][1] == tab[2][2] && tab[0][0] != '-')
 		{
-			//~ cout<<tab[0][0]<<" venceu";
 			return tab[0][0];
 		}
 
 	if(tab[0][2] == tab[1][1] && tab[1][1] == tab[2][0] && tab[0][2] != '-')
 		{
-			//~ cout<<tab[0][2]<<" venceu";
 			return tab[0][2];
 		}
 	if(jogadas > 8)
@@ -48,7 +44,6 @@ int custo(char c)
 
 int minimax(char tab[3][3],int profundidade,char jogador)
 {
-	//~ return 1;
 	char ganhador = Final(tab);
 	if(ganhador != 'C')
 		return custo(ganhador);
